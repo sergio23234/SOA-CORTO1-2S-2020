@@ -1,0 +1,49 @@
+<!html5>
+<head>
+<title>Principal</title>
+<style>
+body {
+  background-image: url('media/Fondo3.jpg');
+}
+ .boton_personalizado{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+  }
+</style>
+<link rel="stylesheet" type="text/css" href="css/arbol.css" media="screen" />
+</head>
+<body >
+	<script src="js/index.js"></script>
+	<script>
+		var token_acceso="";
+		var actual =0;
+		function mostrar(){
+			if(actual!=0){
+				var act = document.getElementById("Arbol");
+				act.style = "display:none;";
+				actual = 0;			
+			}else{
+				var act = document.getElementById("Arbol");
+				actual = 1;
+				Obtener_Credenciales(1);
+				act.style = "display:show;";	
+			}
+		}
+	</script>
+	<h1 style="color:white">Mostrar Datos</h1>
+	<input type="button" class="boton_personalizado" value="Mostrar Datos" onclick="mostrar()">
+	<input type="button" class="boton_personalizado" value="Cargar Datos" onclick="Obtener_Credenciales(2)">
+	<div id="Arbol" style="visibility: hidden" class="contenedor-arbol">
+		<h1 style="color:white">Arbol:</h1>
+		<nav id="MArbol">
+			<ul id="Uroot">
+			</ul>
+		</nav>	
+	</div>
+</body>
