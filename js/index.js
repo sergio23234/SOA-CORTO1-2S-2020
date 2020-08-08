@@ -66,7 +66,7 @@ function Cargar(nombre)
 {
 	var myHeaders = new Headers();
 	myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-	myHeaders.append("Authorization", "Bearer 701483d198589229119b66f248477d8a3349c96b");
+	myHeaders.append("Authorization", "Bearer "+token_acceso);
 	myHeaders.append("Cookie", "__cfduid=d6bc4acbffeee677e41675a0dec5803581596328462; 1bb11e6f2dacb1c375d150942d6da0cd=gs1rlf3ppe4e3rgtqlv13i911v");
 
 	var urlencoded = new URLSearchParams();
@@ -128,7 +128,7 @@ function Asignar(Texto,Tipo)
 	if(Tipo==1){
 		Get_Datos();
 	}else{
-		
+		Cargar_Dato();
 	}
 	
 	return "";
