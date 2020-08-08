@@ -65,22 +65,52 @@ Variables: Nombre=> nombre del dato a añadir.
 function Cargar(nombre)
 {
 	var myHeaders = new Headers();
-	myHeaders.append("Cookie", "__cfduid=d6bc4acbffeee677e41675a0dec5803581596328462;1bb11e6f2dacb1c375d150942d6da0cd=sj6730452oebkh9lqtfhmgettd");
-	var formdata = new FormData();
-	formdata.append("name", nombre);
-	
-	var requestOptions = {
-		method: 'POST',
-		headers: myHeaders,
-		body: formdata,
-		redirect: 'follow'
-	};
-	fetch("https://api.softwareavanzado.world/index.php?webserviceClient=administrator&webserviceVersion=1.0.0&option=contact&api=hal&f", requestOptions)
-	.then(response => response.text())
+myHeaders.append("Cookie", "__cfduid=d6bc4acbffeee677e41675a0dec5803581596328462; 1bb11e6f2dacb1c375d150942d6da0cd=gs1rlf3ppe4e3rgtqlv13i911v");
+
+var formdata = new FormData();
+formdata.append("grant_type", "client_credentials");
+formdata.append("client_id", "sa");
+formdata.append("client_secret", "fb5089840031449f1a4bf2c91c2bd2261d5b2f122bd8754ffe23be17b107b8eb103b441de3771745");
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: formdata,
+  redirect: 'follow'
+};
+
+fetch("https://api.softwareavanzado.world/index.php?option=token&api=oauth2", requestOptions)
+  	.then(response => response.text())
 	.then(result => console.log(result))
 	.catch(error => console.log('error', error));
 }
 
+function Obtener_Credenciales()
+{
+
+var myHeaders = new Headers();
+myHeaders.append("Access-Control-Allow-Origin", "*");
+myHeaders.append("Cookie", "__cfduid=d6bc4acbffeee677e41675a0dec5803581596328462; 1bb11e6f2dacb1c375d150942d6da0cd=gs1rlf3ppe4e3rgtqlv13i911v");
+
+var formdata = new FormData();
+formdata.append("grant_type", "client_credentials");
+formdata.append("client_id", "sa");
+formdata.append("client_secret", "fb5089840031449f1a4bf2c91c2bd2261d5b2f122bd8754ffe23be17b107b8eb103b441de3771745");
+
+var requestOptions = {
+  method: 'POST',
+  mode: 'no-cors',
+  headers: myHeaders,
+  body: formdata,
+  redirect: 'follow'
+};
+
+fetch("https://api.softwareavanzado.world/index.php?option=token&api=oauth2", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
+}
 /*
 	var myHeaders = new Headers();
 	myHeaders.append("Cookie", "__cfduid=d6bc4acbffeee677e41675a0dec5803581596328462; 1bb11e6f2dacb1c375d150942d6da0cd=sj6730452oebkh9lqtfhmgettd");
